@@ -13,7 +13,7 @@ public class InsertionSort {
         }
     }
 
-    private static void printArray(int[] arr) {
+    public static void printArray(int[] arr) {
         for (int i : arr) {
             System.out.print(i + " ");
         }
