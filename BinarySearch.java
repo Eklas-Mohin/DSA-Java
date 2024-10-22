@@ -1,16 +1,19 @@
 public class BinarySearch {
 
     public static int binarySearch(int[] arr, int target) {
-        int low = 0, high = arr.length - 1;
+        int low, mid, high;
+        low = 0;
+        high = arr.length - 1;
 
         while (high >= low) {
-            int mid = (high + low) / 2;
+            mid = low + (high - low) / 2;
             if (arr[mid] == target) {
                 return mid;
-            } else if (target > arr[mid]) {
-                low = mid + 1;
-            } else {
+            } else if (arr[mid] > target) {
                 high = mid - 1;
+                
+            } else {
+                low = mid + 1;
             }
         }
 
@@ -18,8 +21,8 @@ public class BinarySearch {
     }
 
     public static void main(String[] args) {
-        int[] arr = {2, 4, 6, 8, 8, 9, 10, 11, 11, 12, 14};
-        int target = 14;
+        int[] arr = {2, 3, 5, 7, 11, 13, 17, 19, 23, 37, 73};
+        int target = 73;
         int targetIndex = binarySearch(arr, target);
 
         if (targetIndex != -1) {
